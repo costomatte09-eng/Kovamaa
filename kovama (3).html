@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kovama – Agence de Communication Digitale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#fff;color:#0d1b2e;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+:root{
+  --navy:#0d1b2e;--navy2:#152840;
+  --orange:#e8572a;--orange2:#ff6b35;
+  --light:#f4f6f9;--gray:#8a9ab5;
+  --text:#4a5568;--border:#e2e8f0;
+}
+.container{max-width:1160px;margin:0 auto;padding:0 28px}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.75rem,2.8vw,2.4rem);font-weight:700;line-height:1.22;color:var(--navy);margin-bottom:14px}
+.sub{font-size:1rem;color:var(--text);line-height:1.75;max-width:520px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+/* Buttons */
+.btn-o{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;background:var(--orange);color:#fff;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;border:none;cursor:pointer;box-shadow:0 8px 28px rgba(232,87,42,.32);transition:background .2s,transform .2s,box-shadow .2s}
+.btn-o:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 14px 38px rgba(232,87,42,.42)}
+.btn-gw{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;background:transparent;color:#fff;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:500;border:1px solid rgba(255,255,255,.25);cursor:pointer;transition:background .2s,border-color .2s}
+.btn-gw:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.5)}
+/* Progress */
+#pb{position:fixed;top:0;left:0;z-index:9999;height:3px;width:0%;background:var(--orange);transition:width .1s linear}
+/* Navbar */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(13,27,46,.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06);transition:height .3s,box-shadow .3s}
+#nav.sc{height:58px;box-shadow:0 4px 28px rgba(0,0,0,.3)}
+.logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.4rem;font-weight:800;color:#fff;display:flex;align-items:center;gap:12px}
+.logo-sep{width:1px;height:18px;background:rgba(255,255,255,.2)}
+.logo-sub{font-family:'DM Sans',sans-serif;font-size:.76rem;font-weight:400;color:var(--gray)}
+.nav-ul{display:flex;align-items:center;gap:32px}
+.nav-ul a{font-size:.875rem;color:rgba(255,255,255,.68);transition:color .2s}
+.nav-ul a:hover{color:#fff}
+.nav-cta{padding:9px 22px!important;background:var(--orange)!important;color:#fff!important;border-radius:9px;font-weight:600!important;transition:background .2s,transform .15s!important}
+.nav-cta:hover{background:var(--orange2)!important;transform:translateY(-1px)}
+/* Ticker */
+#ticker{position:fixed;top:68px;left:0;right:0;z-index:999;height:34px;overflow:hidden;background:var(--orange);display:flex;align-items:center;transition:top .3s}
+#nav.sc~#ticker{top:58px}
+.tt{display:flex;white-space:nowrap;animation:roll 36s linear infinite}
+.ti{display:inline-flex;align-items:center;gap:18px;padding:0 36px;font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#fff}
+.td{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.5);flex-shrink:0}
+@keyframes roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* Hero */
+#hero{min-height:100vh;padding:160px 28px 100px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--navy);position:relative;overflow:hidden}
+.hbg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 85% 60% at 50% 110%,rgba(232,87,42,.18) 0%,transparent 56%),radial-gradient(ellipse 55% 45% at 85% 10%,rgba(232,87,42,.07) 0%,transparent 50%),radial-gradient(ellipse 50% 50% at 10% 85%,rgba(30,110,255,.09) 0%,transparent 50%)}
+.hgrid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 85% 75% at 50% 50%,#000 25%,transparent 75%)}
+.orb{position:absolute;border-radius:50%;filter:blur(68px);z-index:0;animation:ofloat 9s ease-in-out infinite}
+.o1{width:460px;height:460px;background:var(--orange);opacity:.11;top:2%;right:2%}
+.o2{width:340px;height:340px;background:#1a6eff;opacity:.09;bottom:8%;left:4%;animation-delay:3.5s}
+.o3{width:240px;height:240px;background:var(--orange);opacity:.08;top:58%;right:16%;animation-delay:1.5s}
+@keyframes ofloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-26px) scale(1.04)}}
+.hc{position:relative;z-index:2;max-width:860px}
+.hpill{display:inline-flex;align-items:center;gap:8px;margin-bottom:28px;padding:8px 20px;border:1px solid rgba(232,87,42,.38);border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);opacity:0;animation:fu .7s ease .2s forwards}
+.pd{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.ht{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.6rem,5.5vw,4.6rem);font-weight:800;line-height:1.1;color:#fff;opacity:0;animation:fu .7s ease .4s forwards}
+.ht em{color:var(--orange);font-style:normal}
+.hp{margin:24px auto 0;font-size:1.1rem;line-height:1.8;color:rgba(255,255,255,.55);max-width:580px;opacity:0;animation:fu .7s ease .6s forwards}
+.hctas{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu .7s ease .8s forwards}
+.hstats{margin-top:72px;display:flex;gap:56px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu .7s ease 1s forwards}
+.snum{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.4rem;font-weight:800;color:#fff;line-height:1}
+.snum .sfx{color:var(--orange)}
+.slbl{margin-top:7px;font-size:.78rem;color:var(--gray);text-transform:uppercase;letter-spacing:.09em}
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* ── OFFRES ── */
+#offres{padding:110px 28px;background:var(--light)}
+.oh{text-align:center;margin-bottom:64px}
+.oh .sub{margin:0 auto}
+.og{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.og{grid-template-columns:1fr}}
+.oc{background:#fff;border-radius:20px;padding:36px 30px;border:1px solid var(--border);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+.oc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange2));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.oc:hover{transform:translateY(-7px);box-shadow:0 22px 56px rgba(0,0,0,.09);border-color:transparent}
+.oc:hover::before{transform:scaleX(1)}
+/* Featured = première carte en dark */
+.oc.dark{background:var(--navy);color:#fff;border-color:transparent}
+.oc.dark::before{transform:scaleX(1);background:linear-gradient(90deg,var(--orange),var(--orange2))}
+.oc.dark .od{color:rgba(255,255,255,.52)}
+.oc.dark .of{color:rgba(255,255,255,.78)}
+.oc.dark .of::before{background:var(--orange)}
+/* Badge populaire */
+.badge-pop{position:absolute;top:18px;right:18px;background:var(--orange);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 11px;border-radius:100px;box-shadow:0 4px 14px rgba(232,87,42,.4)}
+/* SVG icons for offers */
+.oico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(232,87,42,.1);margin-bottom:24px;flex-shrink:0}
+.oico svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.oc.dark .oico{background:rgba(255,255,255,.1)}
+.oc.dark .oico svg{stroke:rgba(255,255,255,.9)}
+.on_{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.18rem;font-weight:700;margin-bottom:10px;line-height:1.3}
+.od{font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:22px}
+.ofl{flex:1;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.of{font-size:.88rem;line-height:1.55;color:#445;display:flex;align-items:flex-start;gap:10px}
+.of::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:6px}
+.btn-co{display:block;width:100%;padding:12px;border-radius:10px;text-align:center;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .22s}
+.btn-co.light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.btn-co.light:hover{background:rgba(255,255,255,.1)}
+.btn-co.dark-border{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.btn-co.dark-border:hover{background:var(--navy);color:#fff}
+.btn-co.orange-fill{background:var(--orange);color:#fff;border:none;box-shadow:0 6px 22px rgba(232,87,42,.28)}
+.btn-co.orange-fill:hover{background:var(--orange2);transform:translateY(-1px)}
+
+/* ── PORTFOLIO ── */
+#portfolio{padding:110px 28px;background:#fff}
+.ph{text-align:center;margin-bottom:64px}
+.ph .sub{margin:0 auto}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.pg{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.pg{grid-template-columns:1fr}}
+.pc{border-radius:18px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:transform .3s,box-shadow .3s;background:#fff}
+.pc:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
+.pt{height:196px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.pt1{background:linear-gradient(140deg,#0d2d4f,#0d1b2e)}
+.pt2{background:linear-gradient(140deg,#3b1200,#1a0800)}
+.pt3{background:linear-gradient(140deg,#0b2b0b,#071007)}
+.pt4{background:linear-gradient(140deg,#2b0b2b,#160816)}
+.pt5{background:linear-gradient(140deg,#0b0b2b,#050516)}
+.pt6{background:linear-gradient(140deg,#2b2000,#120e00)}
+.mock{width:76%;height:82%;background:rgba(255,255,255,.06);border-radius:8px 8px 4px 4px;border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;overflow:hidden}
+.mtop{height:20px;background:rgba(255,255,255,.08);display:flex;align-items:center;gap:5px;padding:0 8px;flex-shrink:0}
+.md_{width:6px;height:6px;border-radius:50%}
+.mdr{background:#ff5f57}.mdy{background:#febc2e}.mdg{background:#28c840}
+.mbody{flex:1;padding:6px 8px;display:flex;flex-direction:column;gap:5px}
+.ml{border-radius:3px;background:rgba(255,255,255,.1)}
+.mlh{height:26px;background:rgba(232,87,42,.25)!important;border-radius:4px}
+.mls{height:6px}
+.pov{position:absolute;inset:0;background:rgba(13,27,46,.7);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s}
+.pc:hover .pov{opacity:1}
+.pov-btn{padding:10px 22px;border-radius:9px;background:var(--orange);color:#fff;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:7px}
+.pi{padding:16px 20px 20px}
+.ptag{font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--orange);margin-bottom:5px}
+.pname{font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:700;color:var(--navy)}
+/* Modal */
+#pmodal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(8,16,30,.9);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px}
+#pmodal.open{display:flex;animation:mfin .25s ease}
+@keyframes mfin{from{opacity:0}to{opacity:1}}
+.mbox{width:100%;max-width:1080px;height:80vh;background:var(--navy2);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.55);animation:msc .25s ease}
+@keyframes msc{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
+.mbar{height:48px;background:rgba(0,0,0,.25);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0}
+.mdots{display:flex;gap:7px}
+.mdots span{width:12px;height:12px;border-radius:50%}
+.mdr2{background:#ff5f57}.mdy2{background:#febc2e}.mdg2{background:#28c840}
+.murl{flex:1;padding:5px 13px;background:rgba(255,255,255,.07);border-radius:7px;font-size:.78rem;color:rgba(255,255,255,.5);font-family:'DM Sans',sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mcls{width:30px;height:30px;border-radius:7px;border:none;background:rgba(255,255,255,.1);color:#fff;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.mcls:hover{background:var(--orange)}
+.mframe{flex:1;width:100%;border:none;background:#fff}
+.mfoot{height:36px;background:rgba(0,0,0,.2);border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mfoot a{font-size:.78rem;font-weight:600;color:var(--orange);display:flex;align-items:center;gap:6px}
+
+/* ── À PROPOS ── */
+#apropos{padding:110px 28px;background:var(--light)}
+.abg{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center}
+@media(max-width:800px){.abg{grid-template-columns:1fr;gap:52px}}
+.abt .sub{max-width:100%;margin-bottom:18px}
+.abt p{font-size:.95rem;line-height:1.82;color:var(--text);margin-bottom:18px}
+.avals{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.val{flex:1;min-width:90px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:18px 12px;background:#fff;border-radius:14px;border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.val:hover{transform:translateY(-4px);box-shadow:0 8px 26px rgba(0,0,0,.07)}
+.vico{font-size:1.5rem}
+.vlbl{font-size:.78rem;font-weight:600;color:var(--navy);line-height:1.3}
+/* Visual column — now 2 image cards stacked */
+.abv{position:relative;display:flex;flex-direction:column;gap:16px}
+.av-card{border-radius:18px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.av-card-top{height:220px;background:linear-gradient(145deg,#152840,var(--navy));display:flex;align-items:center;justify-content:center;position:relative}
+.av-card-top-inner{display:flex;flex-direction:column;align-items:center;gap:12px;color:rgba(255,255,255,.18)}
+.av-card-top svg{width:56px;height:56px;stroke:currentColor;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.av-card-top span{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.av-card-bottom{height:160px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:20px;position:relative;overflow:hidden}
+.av-card-bottom-inner{width:100%;display:flex;flex-direction:column;gap:10px}
+.ab-label{font-size:.72rem;font-weight:600;color:var(--navy);margin-bottom:2px}
+.ab-bar-wrap{height:7px;background:var(--light);border-radius:100px;overflow:hidden}
+.ab-bar{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--orange),var(--orange2))}
+/* Floating dot decoration */
+.av-deco{position:absolute;top:14px;right:14px;display:flex;gap:6px}
+.av-deco span{width:8px;height:8px;border-radius:50%;background:var(--orange);opacity:.6}
+.av-deco span:nth-child(2){opacity:.35}
+.av-deco span:nth-child(3){opacity:.15}
+
+/* ── ESPACE CLIENT ── */
+#espace{padding:110px 28px;background:var(--navy)}
+.eg{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:800px){.eg{grid-template-columns:1fr;gap:52px}}
+.et .h2{color:#fff}
+.et .sub{color:rgba(255,255,255,.5);max-width:100%}
+.efl{display:flex;flex-direction:column;gap:16px;margin:28px 0}
+.ef{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:13px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);transition:background .2s,border-color .2s}
+.ef:hover{background:rgba(255,255,255,.07);border-color:rgba(232,87,42,.3)}
+.eico{width:38px;height:38px;border-radius:10px;background:rgba(232,87,42,.15);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.eico svg{width:18px;height:18px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ef h4{font-size:.9rem;font-weight:600;color:#fff;margin-bottom:3px}
+.ef p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.5}
+.aw{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;position:relative}
+.aw::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),#ff8c5a)}
+.awbar{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.07)}
+.awt{font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;font-weight:700;color:#fff}
+.awlive{display:flex;align-items:center;gap:6px;font-size:.7rem;color:#22c55e;font-weight:600}
+.awdot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:blink 2s ease infinite}
+.awbody{padding:18px 20px}
+.awtabs{display:flex;gap:6px;margin-bottom:18px}
+.awtab{padding:5px 13px;border-radius:7px;border:none;font-size:.76rem;font-weight:500;font-family:'DM Sans',sans-serif;color:rgba(255,255,255,.35);background:transparent;cursor:pointer;transition:all .2s}
+.awtab.on{background:var(--orange);color:#fff}
+.awrows{display:flex;flex-direction:column}
+.awr{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem}
+.awr:last-child{border-bottom:none}
+.awl{color:rgba(255,255,255,.58)}
+.awb{font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:100px}
+.sd{background:rgba(34,197,94,.15);color:#22c55e}
+.sp_{background:rgba(232,87,42,.18);color:var(--orange)}
+.sr{background:rgba(96,165,250,.18);color:#60a5fa}
+.awq{margin-top:16px}
+.awqr{display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:7px}
+.awqr span:first-child{color:rgba(255,255,255,.5)}
+.awqr span:last-child{color:#fff;font-weight:700}
+.awtr{height:7px;background:rgba(255,255,255,.1);border-radius:100px;overflow:hidden}
+.awfi{height:100%;width:60%;background:linear-gradient(90deg,var(--orange),#ff8c5a);border-radius:100px}
+/* Temos */
+#temos{padding:110px 28px;background:#fff}
+.tmh{text-align:center;margin-bottom:64px}
+.tmh .sub{margin:0 auto}
+.tmg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.tmg{grid-template-columns:1fr}}
+.tm{padding:30px;border-radius:18px;background:var(--light);border:1px solid var(--border);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,background .25s}
+.tm:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.07);background:#fff}
+.tmst{color:var(--orange);font-size:.88rem;letter-spacing:2px;margin-bottom:16px}
+.tmq{font-size:.9rem;line-height:1.78;color:var(--text);font-style:italic;flex:1;margin-bottom:24px}
+.tmw{display:flex;align-items:center;gap:12px}
+.tmav{width:42px;height:42px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--navy2),var(--navy));display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;color:#fff}
+.tmn{font-size:.86rem;font-weight:600;color:var(--navy)}
+.tmr{font-size:.76rem;color:var(--gray)}
+/* Contact */
+#contact{padding:110px 28px;background:var(--light)}
+.cg{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start}
+@media(max-width:800px){.cg{grid-template-columns:1fr;gap:48px}}
+.ci .sub{margin-bottom:30px}
+.citem{display:flex;align-items:center;gap:13px;padding:14px 17px;background:#fff;border-radius:12px;border:1px solid var(--border);margin-bottom:10px;font-size:.88rem;color:var(--navy);font-weight:500;transition:border-color .2s}
+.citem:hover{border-color:var(--orange)}
+.cico{width:35px;height:35px;border-radius:9px;flex-shrink:0;background:rgba(232,87,42,.1);display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.cf{background:#fff;border-radius:20px;padding:38px;border:1px solid var(--border);box-shadow:0 4px 28px rgba(0,0,0,.05)}
+.cft{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.22rem;font-weight:700;margin-bottom:26px}
+.cfrow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:500px){.cfrow{grid-template-columns:1fr}}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.fg label{font-size:.8rem;font-weight:600;color:var(--navy)}
+.fg input,.fg textarea,.fg select{padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:.88rem;font-family:'DM Sans',sans-serif;color:var(--navy);background:#fff;outline:none;transition:border-color .2s,box-shadow .2s}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,87,42,.1)}
+.fg textarea{resize:vertical;min-height:115px}
+.btns{width:100%;padding:14px;border-radius:10px;border:none;background:var(--navy);color:#fff;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .25s,transform .2s,box-shadow .2s;margin-top:4px}
+.btns:hover{background:var(--orange);transform:translateY(-1px);box-shadow:0 8px 28px rgba(232,87,42,.28)}
+.fnote{font-size:.76rem;color:var(--gray);text-align:center;margin-top:10px}
+.cfsuc{display:none;text-align:center;padding:32px 16px}
+.cfsuc .sico{font-size:3rem;margin-bottom:16px}
+.cfsuc h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:8px}
+.cfsuc p{font-size:.9rem;color:var(--text);line-height:1.7}
+/* Footer */
+footer{background:var(--navy);padding:64px 28px 28px;color:rgba(255,255,255,.42)}
+.fg_{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:52px;margin-bottom:48px}
+@media(max-width:800px){.fg_{grid-template-columns:1fr;gap:32px}}
+.fbrand .logo{color:#fff;margin-bottom:14px;display:inline-flex}
+.fbrand p{font-size:.84rem;line-height:1.78;max-width:270px}
+.fcol h5{font-family:'Plus Jakarta Sans',sans-serif;font-size:.76rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px}
+.fcol ul{display:flex;flex-direction:column;gap:9px}
+.fcol ul a{font-size:.84rem;color:rgba(255,255,255,.38);transition:color .2s}
+.fcol ul a:hover{color:var(--orange)}
+.fbot{max-width:1160px;margin:0 auto;padding-top:22px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.78rem}
+#btt{position:fixed;bottom:28px;right:28px;z-index:900;width:44px;height:44px;border-radius:11px;border:none;background:var(--orange);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 6px 22px rgba(232,87,42,.38);opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s}
+#btt.show{opacity:1;transform:none}
+#btt:hover{transform:translateY(-2px)}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(70px);background:var(--navy);color:#fff;padding:13px 22px;border-radius:12px;font-size:.87rem;font-weight:500;display:flex;align-items:center;gap:9px;border-left:3px solid var(--orange);box-shadow:0 10px 32px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:transform .4s,opacity .4s}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+@media(max-width:700px){#nav{padding:0 20px}.nav-ul{display:none}section{padding:80px 20px}}
+</style>
+</head>
+<body>
+
+<div id="pb"></div>
+
+<nav id="nav">
+  <a href="#hero" class="logo">
+    Kovama
+    <div class="logo-sep"></div>
+    <span class="logo-sub">Réseaux sociaux clé en main</span>
+  </a>
+  <ul class="nav-ul">
+    <li><a href="#hero">Accueil</a></li>
+    <li><a href="#offres">Offres</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#espace">Espace client</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+  </ul>
+</nav>
+
+<div id="ticker">
+  <div class="tt">
+    <span class="ti">Sites Web Sur Mesure <span class="td"></span></span>
+    <span class="ti">Réseaux Sociaux Clé en Main <span class="td"></span></span>
+    <span class="ti">Pack Maintenance Mensuel <span class="td"></span></span>
+    <span class="ti">Stratégie Digitale Complète <span class="td"></span></span>
+    <span class="ti">Identité Visuelle <span class="td"></span></span>
+    <span class="ti">Espace Client Dédié <span class="td"></span></span>
+    <span class="ti">Réponse Rapide <span class="td"></span></span>
+    <span class="ti">Sites Web Sur Mesure <span class="td"></span></span>
+    <span class="ti">Réseaux Sociaux Clé en Main <span class="td"></span></span>
+    <span class="ti">Pack Maintenance Mensuel <span class="td"></span></span>
+    <span class="ti">Stratégie Digitale Complète <span class="td"></span></span>
+    <span class="ti">Identité Visuelle <span class="td"></span></span>
+    <span class="ti">Espace Client Dédié <span class="td"></span></span>
+    <span class="ti">Réponse Rapide <span class="td"></span></span>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hbg"></div>
+  <div class="hgrid"></div>
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="hc">
+    <div class="hpill"><div class="pd"></div>Agence de Communication Digitale</div>
+    <h1 class="ht">Votre présence digitale,<br><em>notre expertise.</em></h1>
+    <p class="hp">Kovama accompagne les commerçants et entrepreneurs locaux dans leur transformation digitale — sites web, réseaux sociaux et stratégie complète.</p>
+    <div class="hctas">
+      <a href="#contact" class="btn-o">Nous contacter ↗</a>
+      <a href="#offres" class="btn-gw">Voir nos offres</a>
+    </div>
+    <div class="hstats">
+      <div><div class="snum"><span class="cnt" data-to="50">0</span><span class="sfx">+</span></div><div class="slbl">Clients accompagnés</div></div>
+      <div><div class="snum"><span class="cnt" data-to="48">0</span><span class="sfx">h</span></div><div class="slbl">Réponse généralement rapide</div></div>
+      <div><div class="snum"><span class="cnt" data-to="100">0</span><span class="sfx">%</span></div><div class="slbl">Clé en main</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OFFRES ── -->
+<section id="offres">
+  <div class="container">
+    <div class="oh reveal">
+      <p class="tag">Nos Offres</p>
+      <h2 class="h2">Des solutions adaptées à chaque besoin</h2>
+      <p class="sub">Du site vitrine à la gestion complète de votre présence en ligne, une offre faite pour vous.</p>
+    </div>
+    <div class="og">
+
+      <!-- CARTE 1 : MISE EN AVANT (dark) -->
+      <div class="oc dark reveal">
+        <span class="badge-pop">⭐ La plus populaire</span>
+        <div class="oico">
+          <!-- Globe / site web icon -->
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="on_">Site Web Sur Mesure</div>
+        <p class="od">Un site professionnel, moderne et optimisé pour attirer vos clients. Design personnalisé, responsive et pensé pour convertir.</p>
+        <ul class="ofl">
+          <li class="of">Design personnalisé sur mesure</li>
+          <li class="of">Responsive mobile &amp; tablette</li>
+          <li class="of">SEO de base inclus</li>
+          <li class="of">Livraison rapide</li>
+          <li class="of">1 mois de support offert</li>
+        </ul>
+        <a href="#contact" class="btn-co light">Nous contacter</a>
+      </div>
+
+      <!-- CARTE 2 : standard -->
+      <div class="oc reveal">
+        <div class="oico">
+          <!-- Share / réseaux icon -->
+          <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </div>
+        <div class="on_">Site Web + Réseaux Sociaux</div>
+        <p class="od">Votre site web et vos pages réseaux sociaux professionnelles. Tout est mis en place, prêt à l'emploi.</p>
+        <ul class="ofl">
+          <li class="of">Tout du pack Site Web</li>
+          <li class="of">Création des pages Instagram &amp; Facebook</li>
+          <li class="of">Identité visuelle sur les réseaux</li>
+          <li class="of">Livraison clé en main</li>
+        </ul>
+        <a href="#contact" class="btn-co dark-border">Nous contacter</a>
+      </div>
+
+      <!-- CARTE 3 : standard + btn orange -->
+      <div class="oc reveal">
+        <div class="oico">
+          <!-- Settings / maintenance icon -->
+          <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div class="on_">Pack Maintenance</div>
+        <p class="od">La solution complète : site web, réseaux sociaux et suivi continu. On gère tout pour que vous n'ayez rien à faire.</p>
+        <ul class="ofl">
+          <li class="of">Tout du pack Site Web + Réseaux</li>
+          <li class="of">Publications Instagram &amp; Facebook</li>
+          <li class="of">5 modifications du site par mois</li>
+          <li class="of">Accès à l'espace client Kovama</li>
+          <li class="of">Réponse généralement rapide</li>
+        </ul>
+        <a href="#contact" class="btn-co orange-fill">Nous contacter</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO ── -->
+<section id="portfolio">
+  <div class="container">
+    <div class="ph reveal">
+      <p class="tag">Portfolio</p>
+      <h2 class="h2">Nos réalisations</h2>
+      <p class="sub">Cliquez sur un projet pour le découvrir en direct.</p>
+    </div>
+    <div class="pg">
+      <div class="pc reveal" onclick="openModal('https://example.com','Restaurant Le Jardin')">
+        <div class="pt pt1"><div class="mock"><div class="mtop"><div class="md_ mdr"></div><div class="md_ mdy"></div><div class="md_ mdg"></div></div><div class="mbody"><div class="ml mlh"></div><div class="ml mls" style="width:78%"></div><div class="ml mls" style="width:55%"></div><div class="ml" style="height:34px;margin-top:7px;opacity:.07"></div></div></div><div class="pov"><div class="pov-btn">Voir le site ↗</div></div></div>
+        <div class="pi"><p class="ptag">Site Vitrine</p><div class="pname">Restaurant Le Jardin</div></div>
+      </div>
+      <div class="pc reveal" onclick="openModal('https://example.com','Boutique Mode &amp; Style')">
+        <div class="pt pt2"><div class="mock"><div class="mtop"><div class="md_ mdr"></div><div class="md_ mdy"></div><div class="md_ mdg"></div></div><div class="mbody"><div class="ml" style="height:46px;background:rgba(255,255,255,.06);border-radius:4px"></div><div style="display:flex;gap:5px;margin-top:6px"><div class="ml" style="height:26px;flex:1;opacity:.09"></div><div class="ml" style="height:26px;flex:1;opacity:.09"></div><div class="ml" style="height:26px;flex:1;opacity:.09"></div></div></div></div><div class="pov"><div class="pov-btn">Voir le site ↗</div></div></div>
+        <div class="pi"><p class="ptag">E-Commerce</p><div class="pname">Boutique Mode &amp; Style</div></div>
+      </div>
+      <div class="pc reveal" onclick="openModal('https://example.com','Cabinet Comptable')">
+        <div class="pt pt3"><div class="mock"><div class="mtop"><div class="md_ mdr"></div><div class="md_ mdy"></div><div class="md_ mdg"></div></div><div class="mbody"><div class="ml mls" style="width:45%;margin-bottom:5px"></div><div class="ml mlh" style="height:22px"></div><div class="ml mls" style="width:80%;margin-top:5px"></div><div class="ml mls" style="width:62%"></div></div></div><div class="pov"><div class="pov-btn">Voir le site ↗</div></div></div>
+        <div class="pi"><p class="ptag">Site Professionnel</p><div class="pname">Cabinet Comptable Martin</div></div>
+      </div>
+      <div class="pc reveal" onclick="openModal('https://example.com','Salon Beauté Élite')">
+        <div class="pt pt4"><div class="mock"><div class="mtop"><div class="md_ mdr"></div><div class="md_ mdy"></div><div class="md_ mdg"></div></div><div class="mbody"><div class="ml mlh"></div><div style="display:flex;gap:5px;margin-top:7px"><div class="ml" style="height:18px;flex:1;opacity:.07"></div><div class="ml" style="height:18px;flex:1;opacity:.07"></div></div></div></div><div class="pov"><div class="pov-btn">Voir le site ↗</div></div></div>
+        <div class="pi"><p class="ptag">Réseaux Sociaux</p><div class="pname">Salon Beauté Élite</div></div>
+      </div>
+      <div class="pc reveal" onclick="openModal('https://example.com','Garage Auto Services')">
+        <div class="pt pt5"><div class="mock"><div class="mtop"><div class="md_ mdr"></div><div class="md_ mdy"></div><div class="md_ mdg"></div></div><div class="mbody"><div class="ml mls" style="width:38%"></div><div class="ml mlh" style="height:26px;margin-top:5px"></div><div class="ml mls" style="width:88%;margin-top:5px"></div></div></div><div class="pov"><div class="pov-btn">Voir le site ↗</div></div></div>
+        <div class="pi"><p class="ptag">Pack Complet</p><div class="pname">Garage Auto Services</div></div>
+      </div>
+      <div class="pc reveal" onclick="openModal('https://example.com','Boulangerie Artisan')">
+        <div class="pt pt6"><div class="mock"><div class="mtop"><div class="md_ mdr"></div><div class="md_ mdy"></div><div class="md_ mdg"></div></div><div class="mbody"><div class="ml mlh"></div><div style="display:flex;gap:5px;margin-top:7px"><div class="ml" style="height:22px;flex:1;opacity:.07"></div><div class="ml" style="height:22px;flex:1.4;opacity:.07"></div></div></div></div><div class="pov"><div class="pov-btn">Voir le site ↗</div></div></div>
+        <div class="pi"><p class="ptag">Site Vitrine</p><div class="pname">Boulangerie Artisan</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal portfolio -->
+<div id="pmodal" onclick="modalBg(event)">
+  <div class="mbox">
+    <div class="mbar">
+      <div class="mdots"><span class="mdr2"></span><span class="mdy2"></span><span class="mdg2"></span></div>
+      <div class="murl" id="murl">https://</div>
+      <button class="mcls" onclick="closeModal()">✕</button>
+    </div>
+    <iframe class="mframe" id="mframe" src="" title="Aperçu du site"></iframe>
+    <div class="mfoot"><a id="mext" href="#" target="_blank" rel="noopener">↗ Ouvrir dans un nouvel onglet</a></div>
+  </div>
+</div>
+
+<!-- ── À PROPOS ── -->
+<section id="apropos">
+  <div class="container">
+    <div class="abg">
+      <div class="abt reveal">
+        <p class="tag">À Propos</p>
+        <h2 class="h2">Une agence à taille humaine, proche de vous</h2>
+        <p>Chez Kovama, nous croyons que chaque commerce mérite une présence digitale à la hauteur de son savoir-faire. Notre mission est simple : rendre le digital accessible, efficace et sans prise de tête pour les entrepreneurs locaux.</p>
+        <p>Nous prenons le temps de comprendre votre activité, vos clients et vos objectifs pour créer des solutions qui vous ressemblent et qui fonctionnent vraiment.</p>
+        <div class="avals">
+          <div class="val"><span class="vico">🤝</span><span class="vlbl">Approche humaine</span></div>
+          <div class="val"><span class="vico">🎯</span><span class="vlbl">Résultats concrets</span></div>
+          <div class="val"><span class="vico">❤️</span><span class="vlbl">Passion du métier</span></div>
+        </div>
+      </div>
+      <!-- Visual : 2 image cards -->
+      <div class="abv reveal">
+        <div class="av-card">
+          <div class="av-card-top">
+            <div class="av-deco"><span></span><span></span><span></span></div>
+            <div class="av-card-top-inner">
+              <!-- Laptop / workspace icon -->
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/><path d="M7 7h.01M10 7h7M7 11h10"/></svg>
+              <span>Espace de travail</span>
+            </div>
+          </div>
+        </div>
+        <div class="av-card">
+          <div class="av-card-bottom">
+            <div class="av-deco"><span></span><span></span><span></span></div>
+            <div class="av-card-bottom-inner">
+              <div class="ab-label">Délai de livraison</div>
+              <div class="ab-bar-wrap"><div class="ab-bar" style="width:82%"></div></div>
+              <div class="ab-label" style="margin-top:6px">Taux de fidélisation</div>
+              <div class="ab-bar-wrap"><div class="ab-bar" style="width:75%;opacity:.55"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ESPACE CLIENT ── -->
+<section id="espace">
+  <div class="container">
+    <div class="eg">
+      <div class="et reveal">
+        <p class="tag">Espace Client</p>
+        <h2 class="h2">Votre application dédiée, à portée de main</h2>
+        <p class="sub">Inclus dans le pack maintenance : une application dédiée pour suivre vos demandes, valider vos contenus et communiquer avec l'agence.</p>
+        <div class="efl">
+          <div class="ef">
+            <div class="eico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div><h4>Suivi des demandes</h4><p>Soumettez vos modifications et suivez leur avancement avec votre quota mensuel.</p></div>
+          </div>
+          <div class="ef">
+            <div class="eico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <div><h4>Validation des contenus</h4><p>Approuvez les publications Instagram &amp; Facebook avant mise en ligne.</p></div>
+          </div>
+          <div class="ef">
+            <div class="eico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div><h4>Messagerie centralisée</h4><p>Fini les échanges éparpillés — tout est dans un espace professionnel.</p></div>
+          </div>
+          <div class="ef">
+            <div class="eico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><h4>Réponse généralement rapide</h4><p>Nous faisons notre possible pour répondre dans les meilleurs délais.</p></div>
+          </div>
+        </div>
+        <a href="#contact" class="btn-o">Demander l'accès ↗</a>
+      </div>
+      <div class="aw reveal">
+        <div class="awbar">
+          <span class="awt">Espace Client Kovama</span>
+          <span class="awlive"><span class="awdot"></span>En ligne</span>
+        </div>
+        <div class="awbody">
+          <div class="awtabs">
+            <button class="awtab on" onclick="swTab(this)">Demandes</button>
+            <button class="awtab" onclick="swTab(this)">Contenus</button>
+            <button class="awtab" onclick="swTab(this)">Messages</button>
+          </div>
+          <div class="awrows">
+            <div class="awr"><span class="awl">Mise à jour logo</span><span class="awb sd">Terminé</span></div>
+            <div class="awr"><span class="awl">Nouvelle page Services</span><span class="awb sp_">En cours</span></div>
+            <div class="awr"><span class="awl">Publication Instagram</span><span class="awb sr">À valider</span></div>
+            <div class="awr"><span class="awl">Correction texte accueil</span><span class="awb sd">Terminé</span></div>
+          </div>
+          <div class="awq">
+            <div class="awqr"><span>Modifications ce mois</span><span>3 / 5</span></div>
+            <div class="awtr"><div class="awfi"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TÉMOIGNAGES ── -->
+<section id="temos">
+  <div class="container">
+    <div class="tmh reveal">
+      <p class="tag">Témoignages</p>
+      <h2 class="h2">Ils nous font confiance</h2>
+      <p class="sub">Des entrepreneurs locaux qui ont transformé leur présence en ligne avec Kovama.</p>
+    </div>
+    <div class="tmg">
+      <div class="tm reveal">
+        <div class="tmst">★★★★★</div>
+        <p class="tmq">« Kovama a transformé notre présence en ligne. Le site est magnifique, nos clients le mentionnent régulièrement. Un travail sérieux et rapide. »</p>
+        <div class="tmw"><div class="tmav">SL</div><div><div class="tmn">Sophie L.</div><div class="tmr">Restauratrice · Le Jardin</div></div></div>
+      </div>
+      <div class="tm reveal">
+        <div class="tmst">★★★★★</div>
+        <p class="tmq">« Depuis qu'on a confié nos réseaux à Kovama, notre engagement a doublé. L'espace client est vraiment pratique pour suivre les publications. »</p>
+        <div class="tmw"><div class="tmav">MK</div><div><div class="tmn">Marc K.</div><div class="tmr">Gérant · Garage Auto Services</div></div></div>
+      </div>
+      <div class="tm reveal">
+        <div class="tmst">★★★★★</div>
+        <p class="tmq">« Très réactifs, à l'écoute et professionnels. Ils ont su capter notre univers et le retranscrire parfaitement en ligne. Je recommande sans hésitation. »</p>
+        <div class="tmw"><div class="tmav">AC</div><div><div class="tmn">Amina C.</div><div class="tmr">Fondatrice · Salon Beauté Élite</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div class="cg">
+      <div class="ci reveal">
+        <p class="tag">Contact</p>
+        <h2 class="h2">Parlons de votre projet</h2>
+        <p class="sub">Remplissez le formulaire — nous vous recontacterons rapidement. Devis, facturation et paiement se font après un échange direct.</p>
+        <div class="citem"><div class="cico">📧</div><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="55363a3b21343621153e3a233438347b3327">[email&#160;protected]</a></div>
+        <div class="citem"><div class="cico">📱</div>Instagram &amp; WhatsApp disponibles</div>
+        <div class="citem"><div class="cico">⏱️</div>Réponse généralement rapide</div>
+      </div>
+      <div class="cf reveal">
+        <div id="cf-form">
+          <h3 class="cft">Parlons de votre projet</h3>
+          <!--
+            ACTIVER L'ENVOI DE MAILS :
+            1. Créez un compte sur formspree.io
+            2. Créez un formulaire et copiez votre ID
+            3. Remplacez YOUR_FORMSPREE_ID
+          -->
+          <form id="the-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onsubmit="handleForm(event)">
+            <div class="cfrow">
+              <div class="fg"><label>Nom complet</label><input type="text" name="nom" placeholder="Votre nom" required></div>
+              <div class="fg"><label>Email</label><input type="email" name="email" placeholder="votre@email.com" required></div>
+            </div>
+            <div class="fg"><label>Téléphone</label><input type="tel" name="tel" placeholder="06 12 34 56 78"></div>
+            <div class="fg">
+              <label>Vous êtes intéressé(e) par</label>
+              <select name="offre">
+                <option value="">Choisissez une offre...</option>
+                <option>Site Web Sur Mesure</option>
+                <option>Site Web + Réseaux Sociaux</option>
+                <option>Pack Maintenance</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="fg"><label>Message</label><textarea name="message" placeholder="Décrivez votre projet..."></textarea></div>
+            <button type="submit" class="btns" id="sbtn">✉️ Envoyer le message</button>
+            <p class="fnote">Vos données sont uniquement utilisées pour vous recontacter.</p>
+          </form>
+        </div>
+        <div class="cfsuc" id="cf-success">
+          <div class="sico">✅</div>
+          <h4>Message envoyé !</h4>
+          <p>Merci pour votre message. Nous vous répondrons dans les meilleurs délais.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="fg_">
+    <div class="fbrand">
+      <a href="#hero" class="logo">Kovama</a>
+      <p>Agence de communication digitale dédiée aux commerçants et entrepreneurs locaux — sites web, réseaux sociaux, stratégie complète.</p>
+    </div>
+    <div class="fcol">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#offres">Nos offres</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#espace">Espace client</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#offres">Site Web Sur Mesure</a></li>
+        <li><a href="#offres">Gestion Réseaux Sociaux</a></li>
+        <li><a href="#offres">Pack Maintenance</a></li>
+        <li><a href="#espace">Application Client</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2025 Kovama. Tous droits réservés.</span>
+    <span>Fait avec ❤️ pour les entrepreneurs locaux</span>
+  </div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div class="toast" id="toast">✅ Message envoyé ! On vous répond bientôt.</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── Scroll : progress bar + nav + btt ──
+window.addEventListener('scroll', function() {
+  var s = window.scrollY;
+  var h = document.documentElement;
+  document.getElementById('pb').style.width = (s / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  document.getElementById('nav').classList.toggle('sc', s > 60);
+  document.getElementById('btt').classList.toggle('show', s > 400);
+});
+
+// ── Reveal on scroll ──
+var ro = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e, i) {
+    if (e.isIntersecting) {
+      setTimeout(function() { e.target.classList.add('visible'); }, i * 80);
+      ro.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
+
+// ── Counters ──
+var fired = false;
+function runCounters() {
+  if (fired) return;
+  fired = true;
+  document.querySelectorAll('.cnt').forEach(function(el, i) {
+    var target = parseInt(el.getAttribute('data-to'), 10);
+    var dur = 1800;
+    var start = null;
+    function ease(t) { return t >= 1 ? 1 : 1 - Math.pow(2, -10 * t); }
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      el.textContent = Math.floor(ease(p) * target);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    setTimeout(function() { requestAnimationFrame(step); }, i * 150);
+  });
+}
+var se = document.querySelector('.hstats');
+if (se) {
+  var so = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) { runCounters(); so.disconnect(); }
+  }, { threshold: 0.4 });
+  so.observe(se);
+}
+window.addEventListener('load', function() { setTimeout(runCounters, 1400); });
+
+// ── App tabs ──
+function swTab(el) {
+  document.querySelectorAll('.awtab').forEach(function(t) { t.classList.remove('on'); });
+  el.classList.add('on');
+}
+
+// ── Portfolio modal ──
+function openModal(url, name) {
+  document.getElementById('mframe').src = url;
+  document.getElementById('murl').textContent = url;
+  document.getElementById('mext').href = url;
+  document.getElementById('mext').textContent = '↗ Ouvrir ' + name + ' dans un nouvel onglet';
+  document.getElementById('pmodal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('pmodal').classList.remove('open');
+  document.getElementById('mframe').src = '';
+  document.body.style.overflow = '';
+}
+function modalBg(e) { if (e.target === document.getElementById('pmodal')) closeModal(); }
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+// ── Contact form ──
+async function handleForm(e) {
+  e.preventDefault();
+  var btn = document.getElementById('sbtn');
+  btn.textContent = 'Envoi en cours…';
+  btn.disabled = true;
+  var form = document.getElementById('the-form');
+  if (form.action.includes('YOUR_FORMSPREE_ID')) { setTimeout(showOk, 900); return; }
+  try {
+    var r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+    if (r.ok) showOk();
+    else { btn.textContent = 'Erreur – réessayez'; btn.disabled = false; }
+  } catch(err) { showOk(); }
+}
+function showOk() {
+  document.getElementById('cf-form').style.display = 'none';
+  document.getElementById('cf-success').style.display = 'block';
+  var t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 4500);
+}
+
+// ── Smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('c
