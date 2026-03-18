@@ -1,4 +1,4 @@
-<!DOCTYPE html>  
+<!DOCTYPE html> 
 <html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -502,14 +502,6 @@
             .contact-grid > div:last-child  { padding: 2rem 1.5rem !important; }
 
             footer { padding: 3rem 1.25rem !important; }
-
-            /* Masquer l'indicateur de scroll sur mobile */
-            .scroll-ind { display: none !important; }
-
-            /* Aération supplémentaire des sections */
-            #offres > div > div:first-child   { margin-bottom: 2.5rem !important; }
-            #portfolio > div > div:first-child { margin-bottom: 2.5rem !important; }
-            #contact > div > div:first-child   { margin-bottom: 2rem !important; }
         }
 
         #accueil, #offres, #portfolio, #contact { position: relative; z-index: 1; }
@@ -793,7 +785,7 @@
 
                 <div style="padding:2.75rem 2.25rem;background:var(--navy);">
                     <h3 style="font-size:1.1rem;font-weight:800;color:white;margin-bottom:0.6rem;">On vous répond vite.</h3>
-                    <p style="font-size:0.78rem;color:rgba(255,255,255,0.38);line-height:1.75;margin-bottom:2.5rem;">Envoyez votre demande et nous revenons vers vous dans les brefs délais — sans engagement.</p>
+                    <p style="font-size:0.78rem;color:rgba(255,255,255,0.38);line-height:1.75;margin-bottom:2.5rem;">Envoyez votre demande et nous revenons vers vous dans les 48h — sans engagement.</p>
                     <div style="display:flex;flex-direction:column;gap:1.5rem;">
                         <div style="display:flex;align-items:flex-start;gap:0.85rem;">
                             <div style="width:2.2rem;height:2.2rem;border-radius:0.6rem;background:var(--orange-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -801,7 +793,7 @@
                             </div>
                             <div>
                                 <div style="font-size:0.62rem;color:rgba(255,255,255,0.32);text-transform:uppercase;letter-spacing:0.18em;margin-bottom:0.25rem;">Email</div>
-                                <div style="font-size:0.8rem;font-weight:600;color:white;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="15767a7b61747661557e7a637478743b7367">[email&#160;protected]</a></div>
+                                <div style="font-size:0.8rem;font-weight:600;color:white;">contact@kovama.fr</div>
                             </div>
                         </div>
                         <div style="display:flex;align-items:flex-start;gap:0.85rem;">
@@ -882,7 +874,7 @@
 </footer>
 
 <!-- SCRIPTS -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 850, once: true, offset: 70 });
 
@@ -907,4 +899,14 @@
     hamBtn.addEventListener('click', () => {
         const open = mobileMenu.classList.toggle('open');
         hamBtn.classList.toggle('open', open);
-        document.body.style.o
+        document.body.style.overflow = open ? 'hidden' : '';
+    });
+    function closeMenu() {
+        mobileMenu.classList.remove('open');
+        hamBtn.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+</script>
+
+</body>
+</html>
