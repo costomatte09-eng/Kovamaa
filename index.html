@@ -784,21 +784,30 @@
             <h2 style="font-size:2.35rem;font-weight:800;color:white;" data-aos="fade-up" data-aos-delay="60">Des projets qui parlent d'eux-mêmes</h2>
             <div class="orange-line mx-auto" data-aos="fade-up" data-aos-delay="110"></div>
         </div>
-
         <div class="portfolio-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
 
+            <!-- Carte 1 — avec iframe -->
             <div class="portfolio-thumb" data-aos="fade-up">
-                <div class="portfolio-thumb-img" style="background:linear-gradient(135deg,#1a3a2a,#2d6a4f);">🌿</div>
+                <div style="height:220px;overflow:hidden;position:relative;pointer-events:none;">
+                    <iframe
+                        src="https://costomatte09-eng.github.io/Le-Tilleul/"
+                        style="width:200%;height:200%;transform:scale(0.5);transform-origin:top left;border:none;display:block;"
+                        loading="lazy"
+                        title="Aperçu Le Tilleul"
+                        scrolling="no">
+                    </iframe>
+                </div>
                 <div style="padding:1.25rem 1.5rem;background:var(--glass);">
                     <span style="font-size:0.62rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:0.22em;">Site Vitrine</span>
                     <h4 style="color:white;font-weight:700;font-size:0.9rem;margin-top:0.25rem;">Restaurant Le Jardin</h4>
                 </div>
                 <div class="portfolio-overlay">
                     <p style="color:rgba(255,255,255,0.5);font-size:0.78rem;">Site vitrine restaurant</p>
-                    <button class="portfolio-btn" onclick="alert('URL à remplacer')">Explorer le site</button>
+                    <a href="https://costomatte09-eng.github.io/Le-Tilleul/" target="_blank" rel="noopener" class="portfolio-btn">Voir le site complet</a>
                 </div>
             </div>
 
+            <!-- Carte 2 — inchangée -->
             <div class="portfolio-thumb" data-aos="fade-up" data-aos-delay="100">
                 <div class="portfolio-thumb-img" style="background:linear-gradient(135deg,#2d1b4e,#6d28d9);">👗</div>
                 <div style="padding:1.25rem 1.5rem;background:var(--glass);">
@@ -811,6 +820,7 @@
                 </div>
             </div>
 
+            <!-- Carte 3 — inchangée -->
             <div class="portfolio-thumb" data-aos="fade-up" data-aos-delay="200">
                 <div class="portfolio-thumb-img" style="background:linear-gradient(135deg,#1a2744,#1e40af);">📊</div>
                 <div style="padding:1.25rem 1.5rem;background:var(--glass);">
