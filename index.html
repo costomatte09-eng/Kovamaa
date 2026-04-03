@@ -309,7 +309,8 @@
         }
 
         /* ══════════════════════════════════
-           HERO — TYPEWRITER + MOTS QUI MONTENT
+     /* ══════════════════════════════════
+        HERO — TYPEWRITER + MOTS QUI MONTENT
         ══════════════════════════════════ */
         .hero-word {
             display: inline-block;
@@ -320,7 +321,6 @@
         @keyframes word-rise {
             to { opacity: 1; transform: translateY(0); }
         }
-
         #typewriter-line {
             display: inline-block;
             overflow: hidden;
@@ -329,7 +329,8 @@
             width: 0;
             animation:
                 tw-expand 1.8s steps(18, end) 1.5s forwards,
-                blink-caret 0.75s step-end infinite;
+                blink-caret 0.75s step-end 1.5s 3,
+                caret-hide 0s 3.3s forwards;
         }
         @keyframes tw-expand {
             from { width: 0; }
@@ -339,7 +340,9 @@
             0%,100% { border-color: transparent; }
             50%      { border-color: var(--orange); }
         }
-
+        @keyframes caret-hide {
+            to { border-color: transparent; }
+        }
         .hero-fade {
             opacity: 0;
             animation: fade-up-in 0.7s ease forwards;
