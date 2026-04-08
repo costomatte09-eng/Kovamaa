@@ -741,8 +741,51 @@
 
 
 <!-- ══════════════════════════════════
-     OFFRES
+  OFFRES
 ══════════════════════════════════ -->
+
+<style>
+  .seo-q {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.65);
+    font-size: 0.6rem;
+    font-weight: 700;
+    margin-left: 3px;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    line-height: 1;
+  }
+  .seo-q .seo-tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a2e;
+    color: white;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    padding: 4px 8px;
+    border-radius: 4px;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 10;
+  }
+  .seo-q:hover .seo-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
+
 <section id="offres" style="padding:7rem 1.75rem;">
     <div style="max-width:72rem;margin:0 auto;">
         <div style="text-align:center;margin-bottom:4rem;">
@@ -753,52 +796,57 @@
 
         <div class="offers-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:start;">
 
-            <!-- Offre 1 — Featured -->
-            <div class="card-glass card-featured" style="padding:2.25rem;position:relative;" data-aos="fade-up" data-aos-delay="0">
-                <div class="badge-pop">La plus populaire</div>
+            <!-- Offre 1 — Lancement -->
+            <div class="card-glass" style="padding:2.25rem;" data-aos="fade-up" data-aos-delay="0">
                 <div style="width:2.75rem;height:2.75rem;border-radius:0.75rem;background:var(--orange-dim);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8572a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
                 </div>
-                <h3 style="font-size:1.05rem;font-weight:800;color:white;margin-bottom:0.5rem;">Site Web Sur Mesure</h3>
-                <p style="font-size:0.8rem;color:rgba(255,255,255,0.42);line-height:1.65;margin-bottom:1.5rem;">Un site professionnel, moderne et optimisé pour attirer vos clients en ligne.</p>
+                <h3 style="font-size:1.05rem;font-weight:800;color:white;margin-bottom:0.25rem;">Lancement</h3>
+                <div style="font-size:1.4rem;font-weight:800;color:#e8572a;margin-bottom:0.5rem;">300 €</div>
+                <p style="font-size:0.8rem;color:rgba(255,255,255,0.42);line-height:1.65;margin-bottom:1.5rem;">La solution idéale pour les petits budgets.</p>
                 <div style="border-top:1px solid var(--glass-border);padding-top:1.25rem;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:0.65rem;">
-                    <div class="check-item">Design personnalisé &amp; responsive</div>
-                    <div class="check-item">Optimisation SEO de base</div>
-                    <div class="check-item">Livraison rapide</div>
-                    <div class="check-item">1 mois de support offert</div>
-                </div>
-                <a href="#contact" class="btn-offer-fill">Choisir ce pack</a>
-            </div>
-
-            <!-- Offre 2 -->
-            <div class="card-glass" style="padding:2.25rem;" data-aos="fade-up" data-aos-delay="120">
-                <div style="width:2.75rem;height:2.75rem;border-radius:0.75rem;background:rgba(99,179,237,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                </div>
-                <h3 style="font-size:1.05rem;font-weight:800;color:white;margin-bottom:0.5rem;">Site Web + Réseaux Sociaux</h3>
-                <p style="font-size:0.8rem;color:rgba(255,255,255,0.42);line-height:1.65;margin-bottom:1.5rem;">Votre présence digitale complète, livrée clé en main et prête à convertir.</p>
-                <div style="border-top:1px solid var(--glass-border);padding-top:1.25rem;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:0.65rem;">
-                    <div class="check-item">Tout du pack Site Web Sur Mesure</div>
-                    <div class="check-item">Création des pages Instagram &amp; Facebook</div>
-                    <div class="check-item">Identité visuelle cohérente</div>
-                    <div class="check-item">Livraison clé en main</div>
+                    <div class="check-item">Conception et développement du site</div>
+                    <div class="check-item">Site responsive : adapté mobile et ordinateur</div>
+                    <div class="check-item">Optimisé pour le référencement naturel (<span style="white-space:nowrap;">SEO<a href="ressources/seo.html" class="seo-q"><span class="seo-tooltip-text">En savoir plus</span>?</a></span>)</div>
+                    <div class="check-item">Livré et installé sur votre hébergement — vous êtes propriétaire à 100%</div>
+                    <div class="check-item">Sans abonnement — toute modification ultérieure est facturée en prestation séparée</div>
                 </div>
                 <a href="#contact" class="btn-offer">Choisir ce pack</a>
             </div>
 
-            <!-- Offre 3 -->
+            <!-- Offre 2 — Sérénité — Featured -->
+            <div class="card-glass card-featured" style="padding:2.25rem;position:relative;" data-aos="fade-up" data-aos-delay="120">
+                <div class="badge-pop">La plus populaire</div>
+                <div style="width:2.75rem;height:2.75rem;border-radius:0.75rem;background:rgba(99,179,237,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <h3 style="font-size:1.05rem;font-weight:800;color:white;margin-bottom:0.25rem;">Sérénité</h3>
+                <div style="font-size:1.4rem;font-weight:800;color:#63b3ed;margin-bottom:0.5rem;">250 € <span style="font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.5);">+ 25 €/mois</span></div>
+                <p style="font-size:0.8rem;color:rgba(255,255,255,0.42);line-height:1.65;margin-bottom:1.5rem;">Votre site évolue avec votre activité.</p>
+                <div style="border-top:1px solid var(--glass-border);padding-top:1.25rem;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:0.65rem;">
+                    <div class="check-item">Conception et développement du site</div>
+                    <div class="check-item">Site responsive et optimisé <span style="white-space:nowrap;">SEO<a href="ressources/seo.html" class="seo-q"><span class="seo-tooltip-text">En savoir plus</span>?</a></span> inclus</div>
+                    <div class="check-item">Maintenance technique et mises à jour de sécurité incluses</div>
+                    <div class="check-item">Petites modifications de contenu ou de design (textes, photos, couleurs)</div>
+                    <div class="check-item">Support réactif sous 48h</div>
+                </div>
+                <a href="#contact" class="btn-offer-fill">Choisir ce pack</a>
+            </div>
+
+            <!-- Offre 3 — Croissance -->
             <div class="card-glass" style="padding:2.25rem;" data-aos="fade-up" data-aos-delay="240">
                 <div style="width:2.75rem;height:2.75rem;border-radius:0.75rem;background:rgba(167,139,250,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                 </div>
-                <h3 style="font-size:1.05rem;font-weight:800;color:white;margin-bottom:0.5rem;">Pack Maintenance</h3>
-                <p style="font-size:0.8rem;color:rgba(255,255,255,0.42);line-height:1.65;margin-bottom:1.5rem;">Un accompagnement mensuel : site, réseaux et tranquillité d'esprit.</p>
+                <h3 style="font-size:1.05rem;font-weight:800;color:white;margin-bottom:0.25rem;">Croissance</h3>
+                <div style="font-size:1.4rem;font-weight:800;color:#a78bfa;margin-bottom:0.5rem;">250 € <span style="font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.5);">+ à partir de 50 €/mois</span></div>
+                <p style="font-size:0.8rem;color:rgba(255,255,255,0.42);line-height:1.65;margin-bottom:1.5rem;">Un partenaire digital au quotidien.</p>
                 <div style="border-top:1px solid var(--glass-border);padding-top:1.25rem;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:0.65rem;">
-                    <div class="check-item">Tout du pack précédent</div>
-                    <div class="check-item">Publications régulières sur les réseaux</div>
-                    <div class="check-item">Maintenance, mises à jour &amp; sécurité</div>
-                    <div class="check-item">5 modifications du site par mois</div>
-                    <div class="check-item">Espace client dédié</div>
+                    <div class="check-item">Tout ce qui est dans Sérénité</div>
+                    <div class="check-item">Modifications importantes du site (nouvelles sections, refonte de pages)</div>
+                    <div class="check-item">Création de visuels dans la charte graphique existante</div>
+                    <div class="check-item">Gestion des réseaux sociaux disponible</div>
+                    <div class="check-item">Tarif mensuel fixé selon les besoins du client</div>
                 </div>
                 <a href="#contact" class="btn-offer">En savoir plus</a>
             </div>
@@ -806,7 +854,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- ══════════════════════════════════
      PORTFOLIO
