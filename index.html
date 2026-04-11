@@ -65,60 +65,6 @@
             overflow-x: hidden;
         }
         h1,h2,h3,h4,h5 { font-family: 'Plus Jakarta Sans', sans-serif; }
-      /* ══════════════════════════════════
-   LAYOUT — SECTION & CONTAINER
-══════════════════════════════════ */
-.section {
-    padding: 6rem 0;
-}
-
-.container {
-    width: 100%;
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* ══════════════════════════════════
-   SECTION — TITRES GÉNÉRIQUES
-══════════════════════════════════ */
-.section-label {
-    display: inline-block;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.64rem;
-    font-weight: 700;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 0.6rem;
-}
-
-.section-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-    font-weight: 800;
-    color: #e2e8f0;
-    line-height: 1.2;
-    margin-bottom: 0;
-}
-
-.section-underline {
-    width: 44px;
-    height: 3px;
-    background: var(--orange);
-    border-radius: 4px;
-    margin: 0.85rem 0 1.6rem;
-}
-
-@media (max-width: 768px) {
-    .section { padding: 4rem 0; }
-    .container { padding: 0 1.25rem; }
-}
-
-@media (max-width: 480px) {
-    .section { padding: 3rem 0; }
-    .container { padding: 0 1rem; }
-}
 
 
         /* ══════════════════════════════════
@@ -533,7 +479,41 @@
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23e8572a'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E") no-repeat center;
         }
 
-        ca
+        /* ══════════════════════════════════
+           PORTFOLIO
+        ══════════════════════════════════ */
+        .portfolio-thumb {
+            position: relative; overflow: hidden;
+            border-radius: 1.15rem; border: 1px solid var(--glass-border);
+            transition: border-color 0.35s, box-shadow 0.35s;
+        }
+        .portfolio-thumb:hover {
+            border-color: rgba(232,87,42,0.4);
+            box-shadow: 0 16px 42px rgba(232,87,42,0.1);
+        }
+        .portfolio-thumb-img {
+            height: 220px;
+            transition: transform 0.6s cubic-bezier(.23,1,.32,1);
+            display: flex; align-items: center; justify-content: center; font-size: 3.5rem;
+        }
+        .portfolio-thumb:hover .portfolio-thumb-img { transform: scale(1.08); }
+        .portfolio-overlay {
+            position: absolute; inset: 0;
+            background: rgba(13,27,46,0.88);
+            opacity: 0;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 1rem;
+            transition: opacity 0.35s;
+        }
+        .portfolio-thumb:hover .portfolio-overlay { opacity: 1; }
+        .portfolio-btn {
+            color: white; border: 1.5px solid rgba(255,255,255,0.4);
+            padding: 0.5rem 1.5rem; border-radius: 99px;
+            font-size: 0.8rem; font-weight: 700;
+            background: transparent; cursor: pointer;
+            transition: background 0.25s, color 0.25s;
+        }
+        .portfolio-btn:hover { background: white; color: #0d1b2e; }
 
         /* ══════════════════════════════════
            FORMULAIRE
@@ -875,240 +855,68 @@
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
-     PORTFOLIO — HTML COMPLET
-══════════════════════════════════════════════════════════════ -->
-
-<!-- PORTFOLIO -->
-<section id="portfolio" class="section">
-    <div class="container">
-
-        <p class="section-label">NOS RÉALISATIONS</p>
-        <h2 class="section-title">Des projets qui parlent d'eux-mêmes</h2>
-        <div class="section-underline"></div>
-
-        <div class="portfolio-projects">
-
-            <!-- ── Projet 1 : Rénovation 31 ── -->
-            <article class="portfolio-project">
-
-                <div class="portfolio-iframe-side">
-                    <div class="iframe-preview-wrap">
-                        <!-- Overlay avec bouton "Voir le site" -->
-                        <div class="iframe-preview-overlay">
-                            <button
-                                class="iframe-preview-btn"
-                                data-modal-open
-                                data-modal-url="https://costomatte09-eng.github.io/r-novation31/"
-                                data-modal-label="Rénovation 31"
-                                aria-label="Ouvrir le site Rénovation 31 en modale">
-                                <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                                    <circle cx="8" cy="8" r="6.5"/>
-                                    <path d="M8 5v6M5 8h6"/>
-                                </svg>
-                                Voir le site
-                            </button>
-                        </div>
-                        <!-- Preview scalée non-interactive -->
-                        <div class="iframe-scaler" data-scaler>
-                            <iframe
-                                src="https://costomatte09-eng.github.io/r-novation31/"
-                                title="Aperçu du site Rénovation 31"
-                                loading="lazy"
-                                scrolling="no"
-                                tabindex="-1"
-                                aria-hidden="true">
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="iframe-footer">
-                        <span class="iframe-site-name">Rénovation 31</span>
-                        <!-- Icône seule : ouvre dans un nouvel onglet -->
-                        <a href="https://costomatte09-eng.github.io/r-novation31/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="iframe-btn-newtab"
-                           aria-label="Ouvrir Rénovation 31 dans un nouvel onglet">
-                            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                                <path d="M10 2h4v4M14 2l-7 7"/>
-                                <path d="M6 4H3a1 1 0 00-1 1v8a1 1 0 001 1h8a1 1 0 001-1v-3"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="portfolio-info-side">
-                    <!-- TAG CATÉGORIE — à adapter -->
-                    <span class="portfolio-tag">Site vitrine</span>
-                    <!-- TITRE — à adapter -->
-                    <h3 class="portfolio-project-title">Rénovation intérieure &amp; extérieure à Toulouse</h3>
-                    <!-- DESCRIPTION — à remplacer par le vrai texte -->
-                    <p class="portfolio-project-desc">
-                        Rénovation 31 est une entreprise toulousaine spécialisée dans la transformation
-                        d'espaces de vie : peinture, carrelage, plâtrerie et aménagement sur-mesure.
-                        Kovama a conçu leur site vitrine pour mettre en valeur leurs réalisations
-                        et générer de nouveaux contacts qualifiés via le web.
-                    </p>
-                    <div class="portfolio-testimonial">
-                        <div class="portfolio-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <!-- CITATION — à remplacer -->
-                        <blockquote class="portfolio-quote">
-                            « Kovama a su traduire exactement l'image que je voulais donner à mon entreprise.
-                            Le site est professionnel, rapide, et mes clients le trouvent facilement sur Google. »
-                        </blockquote>
-                        <div class="portfolio-author">
-                            <!-- INITIALES — à adapter -->
-                            <div class="portfolio-author-avatar" aria-hidden="true">MR</div>
-                            <div>
-                                <!-- NOM & RÔLE — à remplacer -->
-                                <p class="portfolio-author-name">Marc Rousseau</p>
-                                <p class="portfolio-author-role">Gérant — Rénovation 31</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </article>
-
-
-            <!-- ── Projet 2 : à compléter ── -->
-            <article class="portfolio-project">
-
-                <div class="portfolio-iframe-side">
-                    <!-- Quand le site est prêt : remplacer ce placeholder par le même bloc
-                         iframe-preview-wrap + iframe-scaler que le projet 1 -->
-                    <div class="portfolio-placeholder">
-                        <div class="portfolio-placeholder-bg" style="background: linear-gradient(135deg,#1a2a4a,#0d1b2e);"></div>
-                        <span aria-hidden="true">🛋️</span>
-                    </div>
-                    <div class="iframe-footer">
-                        <!-- NOM — à remplacer -->
-                        <span class="iframe-site-name">Projet à venir</span>
-                        <!-- URL — à remplacer par la vraie URL client -->
-                        <a href="#"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="iframe-btn-newtab"
-                           aria-label="Ouvrir le site dans un nouvel onglet">
-                            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                                <path d="M10 2h4v4M14 2l-7 7"/>
-                                <path d="M6 4H3a1 1 0 00-1 1v8a1 1 0 001 1h8a1 1 0 001-1v-3"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="portfolio-info-side">
-                    <span class="portfolio-tag">Site vitrine</span>
-                    <h3 class="portfolio-project-title">Nom du projet — à compléter</h3>
-                    <p class="portfolio-project-desc">
-                        Description du projet à renseigner. Expliquez ici le secteur d'activité
-                        du client, l'objectif du site et la valeur apportée par Kovama.
-                    </p>
-                    <div class="portfolio-testimonial">
-                        <div class="portfolio-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <blockquote class="portfolio-quote">« Témoignage à insérer ici. »</blockquote>
-                        <div class="portfolio-author">
-                            <div class="portfolio-author-avatar" aria-hidden="true">XX</div>
-                            <div>
-                                <p class="portfolio-author-name">Prénom Nom</p>
-                                <p class="portfolio-author-role">Fonction — Entreprise</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </article>
-
-
-            <!-- ── Projet 3 : à compléter ── -->
-            <article class="portfolio-project">
-
-                <div class="portfolio-iframe-side">
-                    <div class="portfolio-placeholder">
-                        <div class="portfolio-placeholder-bg" style="background: linear-gradient(135deg,#1a1a3a,#0d1b2e);"></div>
-                        <span aria-hidden="true">📊</span>
-                    </div>
-                    <div class="iframe-footer">
-                        <span class="iframe-site-name">Projet à venir</span>
-                        <a href="#"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="iframe-btn-newtab"
-                           aria-label="Ouvrir le site dans un nouvel onglet">
-                            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                                <path d="M10 2h4v4M14 2l-7 7"/>
-                                <path d="M6 4H3a1 1 0 00-1 1v8a1 1 0 001 1h8a1 1 0 001-1v-3"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="portfolio-info-side">
-                    <span class="portfolio-tag">Site vitrine</span>
-                    <h3 class="portfolio-project-title">Nom du projet — à compléter</h3>
-                    <p class="portfolio-project-desc">
-                        Description du projet à renseigner. Expliquez ici le secteur d'activité
-                        du client, l'objectif du site et la valeur apportée par Kovama.
-                    </p>
-                    <div class="portfolio-testimonial">
-                        <div class="portfolio-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <blockquote class="portfolio-quote">« Témoignage à insérer ici. »</blockquote>
-                        <div class="portfolio-author">
-                            <div class="portfolio-author-avatar" aria-hidden="true">XX</div>
-                            <div>
-                                <p class="portfolio-author-name">Prénom Nom</p>
-                                <p class="portfolio-author-role">Fonction — Entreprise</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </article>
-
-        </div><!-- /portfolio-projects -->
-    </div><!-- /container -->
-</section>
-<!-- /PORTFOLIO -->
-
-
-<!-- ══════════════════════════════════════════════════════════════
-     MODALE IFRAME — coller juste AVANT la balise </body>
-     (une seule fois dans la page, pas une par projet)
-══════════════════════════════════════════════════════════════ -->
-
-<!-- PORTFOLIO MODAL -->
-<div class="pf-modal-backdrop" id="pfModal" role="dialog" aria-modal="true" aria-label="Aperçu du site client">
-    <div class="pf-modal">
-        <div class="pf-modal-bar">
-            <span class="pf-modal-title" id="pfModalTitle"></span>
-            <div class="pf-modal-actions">
-                <!-- Icône nouvel onglet -->
-                <a id="pfModalNewTab"
-                   href="#"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="pf-modal-newtab"
-                   aria-label="Ouvrir dans un nouvel onglet">
-                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                        <path d="M10 2h4v4M14 2l-7 7"/>
-                        <path d="M6 4H3a1 1 0 00-1 1v8a1 1 0 001 1h8a1 1 0 001-1v-3"/>
-                    </svg>
-                </a>
-                <!-- Fermer -->
-                <button class="pf-modal-close" id="pfModalClose" aria-label="Fermer">
-                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                        <path d="M3 3l10 10M13 3L3 13"/>
-                    </svg>
-                </button>
-            </div>
+<!-- ══════════════════════════════════
+     PORTFOLIO
+══════════════════════════════════ -->
+<section id="portfolio" style="padding:7rem 1.75rem;background:rgba(255,255,255,0.015);">
+    <div style="max-width:72rem;margin:0 auto;">
+        <div style="text-align:center;margin-bottom:4rem;">
+            <span class="section-tag" data-aos="fade-up">Nos Réalisations</span>
+            <h2 style="font-size:2.35rem;font-weight:800;color:white;" data-aos="fade-up" data-aos-delay="60">Des projets qui parlent d'eux-mêmes</h2>
+            <div class="orange-line mx-auto" data-aos="fade-up" data-aos-delay="110"></div>
         </div>
-        <div class="pf-modal-iframe-wrap">
-            <iframe id="pfModalIframe" src="" title="Site client" scrolling="yes" allowfullscreen></iframe>
+        <div class="portfolio-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
+
+            <!-- Carte 1 — avec iframe -->
+            <div class="portfolio-thumb" data-aos="fade-up">
+                <div style="height:220px;overflow:hidden;position:relative;pointer-events:none;">
+                    <iframe
+                        src="https://costomatte09-eng.github.io/Le-Tilleul/"
+                        style="width:200%;height:200%;transform:scale(0.5);transform-origin:top left;border:none;display:block;"
+                        loading="lazy"
+                        title="Aperçu Le Tilleul"
+                        scrolling="no">
+                    </iframe>
+                </div>
+                <div style="padding:1.25rem 1.5rem;background:var(--glass);">
+                    <span style="font-size:0.62rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:0.22em;">Site Vitrine</span>
+                    <h4 style="color:white;font-weight:700;font-size:0.9rem;margin-top:0.25rem;">Restaurant Le Jardin</h4>
+                </div>
+                <div class="portfolio-overlay">
+                    <p style="color:rgba(255,255,255,0.5);font-size:0.78rem;">Site vitrine restaurant</p>
+                    <a href="https://costomatte09-eng.github.io/Le-Tilleul/" target="_blank" rel="noopener" class="portfolio-btn">Voir le site complet</a>
+                </div>
+            </div>
+
+            <!-- Carte 2 — inchangée -->
+            <div class="portfolio-thumb" data-aos="fade-up" data-aos-delay="100">
+                <div class="portfolio-thumb-img" style="background:linear-gradient(135deg,#2d1b4e,#6d28d9);">👗</div>
+                <div style="padding:1.25rem 1.5rem;background:var(--glass);">
+                    <span style="font-size:0.62rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:0.22em;">E-commerce</span>
+                    <h4 style="color:white;font-weight:700;font-size:0.9rem;margin-top:0.25rem;">Boutique Mode &amp; Style</h4>
+                </div>
+                <div class="portfolio-overlay">
+                    <p style="color:rgba(255,255,255,0.5);font-size:0.78rem;">Boutique en ligne</p>
+                    <button class="portfolio-btn" onclick="alert('URL à remplacer')">Explorer le site</button>
+                </div>
+            </div>
+
+            <!-- Carte 3 — inchangée -->
+            <div class="portfolio-thumb" data-aos="fade-up" data-aos-delay="200">
+                <div class="portfolio-thumb-img" style="background:linear-gradient(135deg,#1a2744,#1e40af);">📊</div>
+                <div style="padding:1.25rem 1.5rem;background:var(--glass);">
+                    <span style="font-size:0.62rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:0.22em;">Site Professionnel</span>
+                    <h4 style="color:white;font-weight:700;font-size:0.9rem;margin-top:0.25rem;">Cabinet Comptable Martin</h4>
+                </div>
+                <div class="portfolio-overlay">
+                    <p style="color:rgba(255,255,255,0.5);font-size:0.78rem;">Site professionnel</p>
+                    <button class="portfolio-btn" onclick="alert('URL à remplacer')">Explorer le site</button>
+                </div>
+            </div>
+
         </div>
     </div>
-</div>
-<!-- /PORTFOLIO MODAL -->
+</section>
 
 
 <!-- ══════════════════════════════════
@@ -1346,75 +1154,6 @@ document.getElementById('contact-form').addEventListener('submit', async functio
         hamBtn.classList.remove('open');
         document.body.style.overflow = '';
     }
-/* ── Scaling des previews iframe ── */
-(function () {
-    function scaleIframes() {
-        document.querySelectorAll('.iframe-preview-wrap').forEach(function (wrap) {
-            var scaler = wrap.querySelector('.iframe-scaler');
-            if (!scaler) return;
-            var scale = wrap.offsetWidth / 1280;
-            scaler.style.transform = 'scale(' + scale + ')';
-            var iframe = scaler.querySelector('iframe');
-            if (iframe) {
-                iframe.style.height = Math.ceil(wrap.offsetHeight / scale) + 'px';
-            }
-        });
-    }
- 
-    /* ── Modale ── */
-    var backdrop = document.getElementById('pfModal');
-    var modalIframe = document.getElementById('pfModalIframe');
-    var modalTitle = document.getElementById('pfModalTitle');
-    var modalNewTab = document.getElementById('pfModalNewTab');
-    var modalClose = document.getElementById('pfModalClose');
- 
-    function openModal(url, label) {
-        modalIframe.src = url;
-        modalTitle.textContent = label;
-        modalNewTab.href = url;
-        backdrop.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-    }
- 
-    function closeModal() {
-        backdrop.classList.remove('is-open');
-        document.body.style.overflow = '';
-        /* Vider l'iframe pour stopper le chargement */
-        setTimeout(function () { modalIframe.src = ''; }, 300);
-    }
- 
-    document.addEventListener('DOMContentLoaded', function () {
-        scaleIframes();
- 
-        /* Boutons "Voir le site" */
-        document.querySelectorAll('[data-modal-open]').forEach(function (btn) {
-            btn.addEventListener('click', function (e) {
-                e.stopPropagation();
-                openModal(btn.dataset.modalUrl, btn.dataset.modalLabel);
-            });
-        });
- 
-        /* Fermer via bouton */
-        if (modalClose) {
-            modalClose.addEventListener('click', closeModal);
-        }
- 
-        /* Fermer en cliquant sur le fond */
-        if (backdrop) {
-            backdrop.addEventListener('click', function (e) {
-                if (e.target === backdrop) closeModal();
-            });
-        }
- 
-        /* Fermer avec Échap */
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeModal();
-        });
-    });
- 
-    window.addEventListener('resize', scaleIframes, { passive: true });
-})();
-
 </script>
 
 </body>
