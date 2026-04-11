@@ -1471,37 +1471,35 @@ pfScale();
 window.addEventListener('resize', pfScale, { passive: true });
 
 // ── Portfolio modal ──────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', function() {
-    var pfModal  = document.getElementById('pfModal');
-    var pfIframe = document.getElementById('pfModalIframe');
-    var pfLabel  = document.getElementById('pfModalLabel');
-    var pfNewTab = document.getElementById('pfModalNewTab');
+var pfModal  = document.getElementById('pfModal');
+var pfIframe = document.getElementById('pfModalIframe');
+var pfLabel  = document.getElementById('pfModalLabel');
+var pfNewTab = document.getElementById('pfModalNewTab');
 
-    document.querySelectorAll('[data-modal-url]').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var url   = this.dataset.modalUrl;
-            var label = this.dataset.modalLabel || '';
-            pfIframe.src        = url;
-            pfLabel.textContent = label;
-            pfNewTab.href       = url;
-            pfModal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        });
+document.querySelectorAll('[data-modal-url]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var url   = this.dataset.modalUrl;
+        var label = this.dataset.modalLabel || '';
+        pfIframe.src          = url;
+        pfLabel.textContent   = label;
+        pfNewTab.href         = url;
+        pfModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
     });
-
-    function pfCloseModal() {
-        pfModal.classList.remove('open');
-        pfIframe.src = '';
-        document.body.style.overflow = '';
-    }
-    document.getElementById('pfModalClose').addEventListener('click', pfCloseModal);
-    pfModal.addEventListener('click', function(e) {
-        if (e.target === pfModal) pfCloseModal();
-    });
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && pfModal.classList.contains('open')) pfCloseModal();
-    }, { passive: true });
 });
+function pfCloseModal() {
+    pfModal.classList.remove('open');
+    pfIframe.src = '';
+    document.body.style.overflow = '';
+}
+document.getElementById('pfModalClose').addEventListener('click', pfCloseModal);
+pfModal.addEventListener('click', function(e) {
+    if (e.target === pfModal) pfCloseModal();
+});
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && pfModal.classList.contains('open')) pfCloseModal();
+}, { passive: true });
+</script>
 
 <!-- PORTFOLIO MODAL -->
 <div class="pf-modal-backdrop" id="pfModal" role="dialog" aria-modal="true" aria-label="Aperçu du site client">
