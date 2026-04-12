@@ -370,13 +370,9 @@
   <div style="max-width:72rem;margin:0 auto;">
     <div id="filters" style="display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;">
       <button class="cat-pill active" data-cat="all">Tout afficher</button>
-      <button class="cat-pill" data-cat="seo">SEO</button>
-      <button class="cat-pill" data-cat="domaine">Nom de domaine</button>
-      <button class="cat-pill" data-cat="hebergement">Hébergement</button>
-      <button class="cat-pill" data-cat="google">Google</button>
-      <button class="cat-pill" data-cat="reseaux">Réseaux sociaux</button>
-      <button class="cat-pill" data-cat="analytics">Analytics</button>
-      <button class="cat-pill" data-cat="agence">Travailler avec une agence</button>
+      <button class="cat-pill" data-cat="seo">Expertise SEO</button>
+      <button class="cat-pill" data-cat="collaboration">Collaboration</button>
+      <button class="cat-pill" data-cat="performance">Performance Technique</button>
     </div>
   </div>
 </section>
@@ -391,7 +387,7 @@
     <div class="resources-grid" id="resources-grid"
          style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
 
-      <!-- ── SEO ── -->
+      <!-- ── SEO 1 ── -->
       <a href="seo.html" class="resource-card" data-cat="seo" data-aos="fade-up">
         <div class="resource-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8572a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -399,111 +395,36 @@
           </svg>
         </div>
         <div>
-          <div class="resource-tag">SEO</div>
+          <div class="resource-tag">Expertise SEO</div>
           <h2 class="resource-title">Référencement naturel : par où commencer ?</h2>
         </div>
-        <p class="resource-desc">Comprendre le SEO en 10 minutes : mots-clés, balises, contenu et liens — les 4 piliers expliqués simplement pour un commerce local.</p>
+        <p class="resource-desc">Comprendre les bases du SEO en 10 minutes : mots-clés, structure technique et autorité. Les piliers indispensables pour rendre votre site visible sur Google.</p>
         <div class="resource-arrow">
           Lire le guide
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>
 
-      <!-- ── NOM DE DOMAINE ── -->
-      <a href="ressources/guide-nom-de-domaine.html" class="resource-card" data-cat="domaine" data-aos="fade-up" data-aos-delay="80">
-        <div class="resource-icon" style="background:rgba(99,179,237,0.1);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-          </svg>
-        </div>
-        <div>
-          <div class="resource-tag" style="color:#63b3ed;">Nom de domaine</div>
-          <h2 class="resource-title">Comment acheter un nom de domaine ?</h2>
-        </div>
-        <p class="resource-desc">Choisir le bon nom, le bon registrar, les extensions à privilégier (.fr, .com…) et éviter les pièges — guide pas à pas pour les débutants.</p>
-        <div class="resource-arrow" style="color:#63b3ed;">
-          Lire le guide
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
-
-      <!-- ── HÉBERGEMENT ── -->
-      <a href="ressources/guide-hebergement.html" class="resource-card" data-cat="hebergement" data-aos="fade-up" data-aos-delay="160">
-        <div class="resource-icon" style="background:rgba(167,139,250,0.1);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2"/>
-            <line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-          </svg>
-        </div>
-        <div>
-          <div class="resource-tag" style="color:#a78bfa;">Hébergement</div>
-          <h2 class="resource-title">Choisir un hébergeur web : le bon choix pour votre activité</h2>
-        </div>
-        <p class="resource-desc">OVH, o2switch, Infomaniak… Quelles différences ? Quels critères regarder ? Ce guide vous aide à choisir sans vous tromper.</p>
-        <div class="resource-arrow" style="color:#a78bfa;">
-          Lire le guide
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
-
-      <!-- ── GOOGLE BUSINESS ── -->
-      <a href="ressources/guide-google-business.html" class="resource-card" data-cat="google" data-aos="fade-up">
+      <!-- ── SEO 2 ── -->
+      <a href="ressources/guide-google-business.html" class="resource-card" data-cat="seo" data-aos="fade-up" data-aos-delay="80">
         <div class="resource-icon" style="background:rgba(52,211,153,0.1);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
           </svg>
         </div>
         <div>
-          <div class="resource-tag" style="color:#34d399;">Google</div>
-          <h2 class="resource-title">Créer et optimiser sa fiche Google Business Profile</h2>
+          <div class="resource-tag" style="color:#34d399;">Expertise SEO</div>
+          <h2 class="resource-title">Optimiser sa fiche Google Business Profile</h2>
         </div>
-        <p class="resource-desc">Apparaître dans Google Maps et les recherches locales, c'est gratuit et essentiel. Voici comment créer et remplir votre fiche correctement.</p>
+        <p class="resource-desc">Apparaître dans Google Maps est essentiel. Apprenez comment créer et optimiser votre fiche pour attirer les clients locaux dès aujourd'hui.</p>
         <div class="resource-arrow" style="color:#34d399;">
           Lire le guide
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>
 
-      <!-- ── RÉSEAUX SOCIAUX ── -->
-      <a href="ressources/guide-reseaux-sociaux.html" class="resource-card" data-cat="reseaux" data-aos="fade-up" data-aos-delay="80">
-        <div class="resource-icon" style="background:rgba(251,146,60,0.1);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 2h-3a5 5 0 00-5 5v3H6v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-          </svg>
-        </div>
-        <div>
-          <div class="resource-tag" style="color:#fb923c;">Réseaux sociaux</div>
-          <h2 class="resource-title">Optimiser ses réseaux sociaux pour un commerce local</h2>
-        </div>
-        <p class="resource-desc">Instagram, Facebook, quelle fréquence de publication, quoi poster — les bases pour une présence cohérente qui attire de vrais clients.</p>
-        <div class="resource-arrow" style="color:#fb923c;">
-          Lire le guide
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
-
-      <!-- ── GOOGLE ANALYTICS ── -->
-      <a href="ressources/guide-analytics.html" class="resource-card" data-cat="analytics" data-aos="fade-up" data-aos-delay="160">
-        <div class="resource-icon" style="background:rgba(248,113,113,0.1);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
-            <line x1="6" y1="20" x2="6" y2="14"/>
-          </svg>
-        </div>
-        <div>
-          <div class="resource-tag" style="color:#f87171;">Analytics</div>
-          <h2 class="resource-title">Comprendre Google Analytics 4 sans être développeur</h2>
-        </div>
-        <p class="resource-desc">Installer GA4, lire les chiffres importants, comprendre d'où viennent vos visiteurs — en moins de 15 minutes.</p>
-        <div class="resource-arrow" style="color:#f87171;">
-          Lire le guide
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
-
-      <!-- ── BRIEF AGENCE ── -->
-      <a href="ressources/guide-brief-agence.html" class="resource-card" data-cat="agence" data-aos="fade-up">
+      <!-- ── COLLABORATION 1 ── -->
+      <a href="ressources/guide-brief-agence.html" class="resource-card" data-cat="collaboration" data-aos="fade-up" data-aos-delay="160">
         <div class="resource-icon" style="background:rgba(250,204,21,0.1);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
@@ -512,47 +433,66 @@
           </svg>
         </div>
         <div>
-          <div class="resource-tag" style="color:#facc15;">Agence</div>
-          <h2 class="resource-title">Rédiger un brief pour son agence web</h2>
+          <div class="resource-tag" style="color:#facc15;">Collaboration</div>
+          <h2 class="resource-title">Réussir son brief &amp; Checklist projet</h2>
         </div>
-        <p class="resource-desc">Un bon brief = un projet qui se passe bien. Voici exactement quoi inclure pour que votre agence comprenne votre vision et livre ce que vous attendez.</p>
+        <p class="resource-desc">Un projet bien préparé est un projet réussi. Découvrez comment définir vos objectifs et la liste complète des éléments (logo, textes, photos) à nous transmettre.</p>
         <div class="resource-arrow" style="color:#facc15;">
           Lire le guide
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>
 
-      <!-- ── SEO LOCAL ── -->
-      <a href="ressources/guide-seo-local.html" class="resource-card" data-cat="seo" data-aos="fade-up" data-aos-delay="80">
-        <div class="resource-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8572a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      <!-- ── COLLABORATION 2 ── -->
+      <a href="ressources/guide-reseaux-sociaux.html" class="resource-card" data-cat="collaboration" data-aos="fade-up">
+        <div class="resource-icon" style="background:rgba(251,146,60,0.1);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 2h-3a5 5 0 00-5 5v3H6v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
           </svg>
         </div>
         <div>
-          <div class="resource-tag">SEO</div>
-          <h2 class="resource-title">SEO local : être visible dans votre ville</h2>
+          <div class="resource-tag" style="color:#fb923c;">Collaboration</div>
+          <h2 class="resource-title">Réseaux Sociaux : l'essentiel pour votre commerce</h2>
         </div>
-        <p class="resource-desc">Pourquoi "restaurant toulouse" ou "coiffeur lyon" s'affichent certains commerces et pas d'autres — et comment intégrer ce top 3 de Google Maps.</p>
-        <div class="resource-arrow">
+        <p class="resource-desc">Pas besoin d'être partout. Apprenez à choisir la bonne plateforme pour votre activité et les bases d'une présence cohérente qui rassure vos clients.</p>
+        <div class="resource-arrow" style="color:#fb923c;">
           Lire le guide
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>
 
-      <!-- ── VITESSE DE CHARGEMENT ── -->
-      <a href="ressources/guide-vitesse-site.html" class="resource-card" data-cat="seo" data-aos="fade-up" data-aos-delay="160">
+      <!-- ── PERFORMANCE 1 ── -->
+      <a href="ressources/guide-vitesse-site.html" class="resource-card" data-cat="performance" data-aos="fade-up" data-aos-delay="80">
         <div class="resource-icon" style="background:rgba(99,179,237,0.1);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
           </svg>
         </div>
         <div>
-          <div class="resource-tag" style="color:#63b3ed;">Hébergement</div>
-          <h2 class="resource-title">Vitesse de chargement : pourquoi ça compte (et comment l'améliorer)</h2>
+          <div class="resource-tag" style="color:#63b3ed;">Performance Technique</div>
+          <h2 class="resource-title">Vitesse de chargement : l'impact sur vos ventes</h2>
         </div>
-        <p class="resource-desc">Un site lent fait fuir les visiteurs et pénalise votre référencement. Ce guide explique les bonnes pratiques sans passer par un développeur.</p>
+        <p class="resource-desc">Un site lent fait fuir 40% des visiteurs. Découvrez pourquoi la performance technique est le premier facteur de conversion et comment nous optimisons vos pages.</p>
         <div class="resource-arrow" style="color:#63b3ed;">
+          Lire le guide
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- ── PERFORMANCE 2 ── -->
+      <a href="ressources/guide-hebergement.html" class="resource-card" data-cat="performance" data-aos="fade-up" data-aos-delay="160">
+        <div class="resource-icon" style="background:rgba(167,139,250,0.1);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="resource-tag" style="color:#a78bfa;">Performance Technique</div>
+          <h2 class="resource-title">Guide : Configurer son domaine et son hébergement</h2>
+        </div>
+        <p class="resource-desc">Le tutoriel pas à pas pour acheter votre nom de domaine et configurer votre hébergeur avant l'intégration de votre solution web.</p>
+        <div class="resource-arrow" style="color:#a78bfa;">
           Lire le guide
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
