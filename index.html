@@ -250,8 +250,7 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 img { max-width: 100%; height: auto; display: block; }
-        html { scroll-behavior: smooth; }
-
+        html { scroll-behavior: smooth; overflow-x: clip; }
         body {
             font-family: 'DM Sans', sans-serif;
             background-color: var(--navy);
@@ -300,12 +299,12 @@ img { max-width: 100%; height: auto; display: block; }
         }
 
         /* Halo hero */
-        #hero-glow {
+       #hero-glow {
             position: absolute;
             top: -5%;
             left: 50%;
             transform: translateX(-50%);
-            width: 900px;
+            width: min(900px, 100vw);
             height: 580px;
             background: radial-gradient(ellipse at center,
                 rgba(232,87,42,0.13) 0%,
