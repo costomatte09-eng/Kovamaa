@@ -175,6 +175,23 @@
 }
 .pf-author-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 700; color: white; }
 .pf-author-role { font-size: 0.68rem; color: rgba(255,255,255,0.55); }
+.pf-badge {
+    position: absolute;
+    top: 0.6rem; left: 0.6rem;
+    z-index: 3;
+    display: inline-flex; align-items: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 99px;
+    padding: 0.2rem 0.65rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.58rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    pointer-events: none;
+}
 .pf-divider { border: none; border-top: 1px solid var(--glass-border); margin: 0; }
 
 /* Modale */
@@ -1083,6 +1100,7 @@ img { max-width: 100%; height: auto; display: block; }
             <article class="pf-project" data-aos="fade-up">
                 <div class="pf-iframe-side">
                     <div class="pf-preview-wrap">
+                      <span class="pf-badge">Réalisation client</span>
                         <div class="pf-preview-overlay">
                             <button class="pf-preview-btn"
                                 data-modal-url="https://costomatte09-eng.github.io/r-novation31/"
