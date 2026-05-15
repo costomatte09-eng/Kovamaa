@@ -175,23 +175,6 @@
 }
 .pf-author-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 700; color: white; }
 .pf-author-role { font-size: 0.68rem; color: rgba(255,255,255,0.55); }
-.pf-badge {
-    position: absolute;
-    top: 0.6rem; left: 0.6rem;
-    z-index: 3;
-    display: inline-flex; align-items: center;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.13);
-    border-radius: 99px;
-    padding: 0.2rem 0.65rem;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.58rem; font-weight: 700;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    pointer-events: none;
-}
 .pf-divider { border: none; border-top: 1px solid var(--glass-border); margin: 0; }
 
 /* Modale */
@@ -244,9 +227,29 @@
 }
 .pf-modal-newtab:hover,
 .pf-modal-close:hover { background: rgba(255,255,255,0.12); color: white; }
-.pf-modal-iframe-wrap { flex: 1; overflow: hidden; }
+.pf-modal-iframe-wrap { flex: 1; overflow: hidden; position: relative; }
 .pf-modal-iframe-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
-
+.pf-modal-watermark {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+}
+.pf-modal-watermark span {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.06);
+    transform: rotate(-35deg);
+    white-space: nowrap;
+    user-select: none;
+}
 /* Responsive portfolio */
 @media (max-width: 768px) {
     .pf-project { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -1100,11 +1103,11 @@ img { max-width: 100%; height: auto; display: block; }
             <article class="pf-project" data-aos="fade-up">
                 <div class="pf-iframe-side">
                     <div class="pf-preview-wrap">
-                      <span class="pf-badge">Réalisation client</span>
                         <div class="pf-preview-overlay">
                             <button class="pf-preview-btn"
                                 data-modal-url="https://costomatte09-eng.github.io/r-novation31/"
                                 data-modal-label="Rénovation 31"
+                                data-is-client="true"
                                 aria-label="Ouvrir le site Rénovation 31">
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
                                 Voir le site
@@ -1513,13 +1516,16 @@ document.querySelectorAll('[data-modal-url]').forEach(function(btn) {
         var pfIframe = document.getElementById('pfModalIframe');
         var pfLabel  = document.getElementById('pfModalLabel');
         var pfNewTab = document.getElementById('pfModalNewTab');
-        var url      = this.dataset.modalUrl;
-        var label    = this.dataset.modalLabel || '';
-        pfIframe.src        = url;
-        pfLabel.textContent = label;
-        pfNewTab.href       = url;
-        pfModal.classList.add('open');
-        document.body.style.overflow = 'hidden';
+        var url       = this.dataset.modalUrl;
+var label     = this.dataset.modalLabel || '';
+var isClient  = this.dataset.isClient === 'true';
+var watermark = document.getElementById('pfModalWatermark');
+pfIframe.src        = url;
+pfLabel.textContent = label;
+pfNewTab.href       = url;
+if (watermark) watermark.style.display = isClient ? 'flex' : 'none';
+pfModal.classList.add('open');
+document.body.style.overflow = 'hidden';
     });
 });
 
@@ -1553,6 +1559,7 @@ document.addEventListener('keydown', function(e) {
             </div>
         </div>
         <div class="pf-modal-iframe-wrap">
+          <div class="pf-modal-watermark" id="pfModalWatermark" style="display:none;"><span>Réalisation client</span></div>
             <iframe id="pfModalIframe" src="" title="Site client" allowfullscreen></iframe>
         </div>
     </div>
